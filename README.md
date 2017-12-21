@@ -6,7 +6,8 @@ Uma aplicação simples e leve, com o consumo de dados JSON via [API RestFULL](h
 
 Você pode encontrar o exemplo [aqui](https://angular-restaurants.herokuapp.com/). 
 
-NOTA: O exemplo está com deploy no heroku, e como podemos ver [aqui](https://blog.heroku.com/app_sleeping_on_heroku), a a aplicação pode levar um tempo para "despertar" se não houver tráfego em 1 hora, então, caso haja problemas ao exibir, recarregue a página e aguarde a aplicação no heroku responder.
+NOTA: 
+> O exemplo está com deploy no heroku, e como podemos ver [aqui](https://blog.heroku.com/app_sleeping_on_heroku), a aplicação pode levar um tempo para "despertar" se não houver tráfego em 1 hora, então, caso haja problemas ao exibir, recarregue a página e aguarde a aplicação no heroku responder.
 
 
 ## Créditos
