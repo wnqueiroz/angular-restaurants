@@ -2,7 +2,7 @@
 
 Desenvolvida utilizando o novo Angular 4.
 
-Uma aplicação simples e leve, com o consumo de dados JSON via [API RestFULL](https://angular-restaurants-db.herokuapp.com/) (json-server), contendo a exibição de restaurantes e seus respectivos produtos, área de checkout e avaliação.
+Uma aplicação simples e leve, com o consumo de dados JSON via [API RestFULL](https://github.com/wnqueiroz/angular-restaurants-db) (json-server), contendo a exibição de restaurantes e seus respectivos produtos, área de checkout e avaliação.
 
 Você pode encontrar o exemplo [aqui](https://angular-restaurants.herokuapp.com/). 
 
