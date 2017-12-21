@@ -1,0 +1,127 @@
+<!--INICIO DO CONTEUDO-->
+<section class="content-header">
+</section>
+
+<section class="content">
+  <section class="invoice">
+    <!-- {{form.value | json}}
+    {{form.valid}} -->
+
+    <!-- Quando utiliza o <form>, o angular por padrão aplica
+    uma diretiva implícita ngForm.
+    Ao utilizar 'novalidate', passa-se a validação para o angular, anulando as
+    validações dos Browsers.
+    # indica a criação de variáveis no angular -->
+    <form [formGroup]="orderForm" novalidate>
+      <div class="row">
+        <div class="col-xs-12">
+          <h2 class="page-header">
+            <i class="fa fa-shopping-cart"></i> Finalize o seu pedido
+          </h2>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12 col-sm-9">
+          <p class="lead">Seus Dados: </p>
+        </div>
+        <div class="col-xs-12 col-sm-3">
+          <span *ngIf="orderForm.hasError('emailsNotMatch')" class="help-block pull-right has-error-block"><i class="fa fa-remove"></i> E-mails não conferem</span>
+        </div>
+        <div class="col-sm-6 col-xs-6">
+          <mt-input-container label="Nome" errorMessage="Campo obrigatório e no mínimo 5 caracteres">
+            <input placeholder="Nome" class="form-control" formControlName="name" autocomplete="off"/>
+          </mt-input-container>
+        </div>
+        <div class="col-sm-3 col-xs-6">
+          <mt-input-container label="E-mail" errorMessage="E-mail inválido">
+            <input placeholder="E-mail" class="form-control" formControlName="email" autocomplete="off"/>
+          </mt-input-container>
+        </div>
+        <div class="col-sm-3 col-xs-6">
+          <mt-input-container label="Confirmação do E-mail" errorMessage="E-mail inválido">
+            <input placeholder="Confirmação do E-mail" class="form-control" formControlName="emailConfirmation" autocomplete="off"/>
+          </mt-input-container>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12">
+          <p class="lead">Endereço de Entrega:</p>
+        </div>
+        <div class="col-sm-6 col-xs-12">
+          <mt-input-container label="Endereço" errorMessage="Campo obrigatório e no mínimo 5 caracteres">
+            <input placeholder="Endereço" class="form-control" formControlName="address" autocomplete="off"/>
+          </mt-input-container>
+        </div>
+        <div class="col-sm-3 col-xs-6">
+          <mt-input-container label="Número" errorMessage="Obrigatório e somente números">
+            <input placeholder="Número" class="form-control" formControlName="number" autocomplete="off"/>
+          </mt-input-container>
+        </div>
+        <div class="col-sm-3 col-xs-6">
+          <div class="form-group">
+            <label class="control-label sr-only" for="inputSuccess"><i class="fa fa-check"></i> Complemento</label>
+            <mt-input-container>
+              <input type="text" class="form-control" formControlName="optionalAddress" placeholder="Complemento">
+            </mt-input-container>
+          </div>
+
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+
+      <!-- Table row -->
+      <div class="row">
+        <div class="col-xs-12">
+          <p class="lead">Itens do Pedido:</p>
+        </div>
+        <mt-order-itens [itens]="cartItens()"
+                        (increaseQty)="increaseQty($event)"
+                        (decreaseQty)="decreaseQty($event)"
+                        (remove)="removeItem($event)"
+                        >
+        </mt-order-itens>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+
+      <div class="row">
+        <!-- accepted payments column -->
+        <div class="col-sm-6 col-xs-12">
+          <p class="lead">Formas de Pagamento:</p>
+          <div class="form-group">
+            <!-- Com o registro do componente ao NG_VALUE_ACCESSOR, conseguimos utilizar a diretiva ngModel -->
+            <mt-radio [options]="paymentOptions" formControlName="paymentOption"></mt-radio>
+
+          </div>
+
+    </div>
+    <!-- /.col -->
+    <div class="col-sm-6 col-xs-12">
+      <p class="lead">Frete e Total:</p>
+        <mt-delivery-costs [delivery]="delivery" [itensValue]="itensValues()"></mt-delivery-costs>
+    </div>
+    <!-- /.col -->
+  </div>
+
+</form>
+
+<div class="row">
+  <div class="col-xs-12">
+    <!-- Está indicando que o botão será desabilitado caso o formulário estiver invalido -->
+    <!-- Ao clicar,  passará os valores do formulário para a função checkOrder em order.component.ts -->
+    <button
+      (click)="checkOrder(orderForm.value)"
+      [disabled]="!orderForm.valid || cartItens().length === 0"
+      class="btn btn-success pull-right"
+      href="order-summary.html">
+      <i class="fa fa-credit-card"></i> Concluir Pedido
+    </button>
+  </div>
+</div>
+
+</section>
+</section>
+<!-- FIM DO CONTEUDO-->
