@@ -12,7 +12,7 @@ NOTA:
 
 ## Créditos
 
-Todas as imagens usadas na aplicação são pertencentes a freepik.com
+Todas as imagens usadas na aplicação são pertencentes a [https://www.freepik.com/](https://www.freepik.com/)
 
 Esse projeto faz parte do estudo e desenvolvimento do curso:
 * [Construindo aplicações Web com o Novo Angular 4 | https://www.cod3r.com.br](https://www.cod3r.com.br/portal/courses/curso-de-angular-4---construindo-aplica%C3%A7%C3%B5es-web-com-o-novo-angular-19).
